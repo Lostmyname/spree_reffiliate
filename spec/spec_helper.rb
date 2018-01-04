@@ -37,7 +37,7 @@ RSpec.configure do |config|
   # Customs
   config.include Rails.application.routes.url_helpers
   config.include Spree::TestingSupport::ControllerRequests, :type => :controller
-  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, :type => :controller
   config.infer_spec_type_from_file_location!
 
   config.include FactoryGirl::Syntax::Methods
