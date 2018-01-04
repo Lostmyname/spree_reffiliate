@@ -5,3 +5,5 @@ gem "solidus"
 gem 'solidus_auth_devise'
 
 gemspec
+
+gem 'rails-controller-testing'
