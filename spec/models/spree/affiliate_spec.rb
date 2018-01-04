@@ -2,19 +2,19 @@ require 'spec_helper'
 
 describe Spree::Affiliate, :type => :model do
   it "should have a name" do
-    affiliate = FactoryGirl.build(:affiliate, name: nil)
+    affiliate = build(:affiliate, name: nil)
     expect(affiliate).to_not be_valid
   end
   it "should have a path" do
-    affiliate = FactoryGirl.build(:affiliate, path: nil)
+    affiliate = build(:affiliate, path: nil)
     expect(affiliate).to_not be_valid
   end
 
   context "with user" do
     before do
-      @affiliate = FactoryGirl.create(:affiliate)
-      @affiliated = FactoryGirl.create(:user, affiliate_code: @affiliate.path)
-      @order = FactoryGirl.create(:order, :user => @affiliated)
+      @affiliate = create(:affiliate)
+      @affiliated = create(:user, affiliate_code: @affiliate.path)
+      @order = create(:order, :user => @affiliated)
     end
 
     it "returns an array of user records" do

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :affiliate, class: Spree::Affiliate do
     name FFaker::Name.first_name
     path FFaker::Name.first_name

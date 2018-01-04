@@ -14,7 +14,7 @@ describe Spree::ReffiliateController, :type => :controller do
   end
   context "affiliate hyperlink" do
     before (:each) do
-      @affiliate = FactoryGirl.create(:affiliate)
+      @affiliate = create(:affiliate)
     end
     it "creates session variable with affiliate path" do
       path = 'affiliate'
@@ -44,7 +44,7 @@ describe Spree::ReffiliateController, :type => :controller do
       @options.each do |layout, option|
         it "#{layout}" do
           option = 'layouts/application' if option.nil?
-          @affiliate = FactoryGirl.create(:affiliate, name: layout, path: layout, partial: 'corona', layout: option)
+          @affiliate = create(:affiliate, name: layout, path: layout, partial: 'corona', layout: option)
           controller.prepend_view_path 'spec/assets'
           allow(controller).to receive(:partial_exists).and_return(true)
           get :affiliate, params: { path: @affiliate.path }

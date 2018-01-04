@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe Spree::Promotion::Rules::ReferredPromotionRule, :type => :model do
   before(:each) do
-    @rule = FactoryGirl.build(:referred_promotion_rule)
-    @user = FactoryGirl.create(:user, email: FFaker::Internet.email)
-    @referred = FactoryGirl.create(:user, email: FFaker::Internet.email, referral_code: @user.referral.code)
-    @organic_order = FactoryGirl.create(:order, :user => @user)
-    @referred_order = FactoryGirl.create(:order, :user => @referred)
+    @rule = build(:referred_promotion_rule)
+    @user = create(:user, email: FFaker::Internet.email)
+    @referred = create(:user, email: FFaker::Internet.email, referral_code: @user.referral.code)
+    @organic_order = create(:order, :user => @user)
+    @referred_order = create(:order, :user => @referred)
   end
   it "is applicable for an order" do
     expect(@rule.applicable?(@referred_order)).to be_truthy
