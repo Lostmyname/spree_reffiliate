@@ -3,7 +3,7 @@ module Spree
     has_one :referral
     has_one :referred_record
     has_one :affiliate, through: :referred_record, foreign_key: :affiliate_id
-    has_one :affiliate_record, class_name: ReferredRecord
+    has_one :affiliate_record, class_name: 'Spree::ReferredRecord'
 
     attr_accessor :referral_code, :affiliate_code
 
@@ -13,7 +13,7 @@ module Spree
     def referred_by
       referred_record.try(:referral).try(:user)
     end
-    
+
     def referred_count
       referral.referred_records.count
     end
