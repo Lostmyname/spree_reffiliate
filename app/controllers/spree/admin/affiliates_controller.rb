@@ -2,7 +2,7 @@ module Spree
   module Admin
     class AffiliatesController < Spree::Admin::ResourceController
       helper_method :affiliate_partial_exists?
-      before_filter :layout_options, only: [:new, :edit]
+      before_action :layout_options, only: [:new, :edit]
 
       def index
         @affiliates = Affiliate.all.page(params[:page]).per(Spree::Config[:admin_products_per_page])
