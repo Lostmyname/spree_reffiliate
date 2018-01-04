@@ -47,7 +47,7 @@ RSpec.configure do |config|
   # Allows access to Spree's routes in specs:
   #
   # visit spree.admin_path
-  # current_path.should eql(spree.products_path)
+  # expect(current_path).to eql(spree.products_path)
   config.include Spree::TestingSupport::UrlHelpers
 
   # == Mock Framework

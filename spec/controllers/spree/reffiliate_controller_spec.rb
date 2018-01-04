@@ -37,7 +37,7 @@ describe Spree::ReffiliateController, :type => :controller do
       @affiliate.update_attribute :partial, 'corona'
       controller.prepend_view_path 'spec/assets'
       get :affiliate, params: { path: @affiliate.path }
-      response.should render_template('spree/affiliates/corona')
+      expect(response).to render_template('spree/affiliates/corona')
     end
     context "layout options" do
       @options = Hash[Spree::Affiliate.layout_options]
@@ -48,7 +48,7 @@ describe Spree::ReffiliateController, :type => :controller do
           controller.prepend_view_path 'spec/assets'
           allow(controller).to receive(:partial_exists).and_return(true)
           get :affiliate, params: { path: @affiliate.path }
-          response.should render_template(layout: @affiliate.get_layout)
+          expect(response).to render_template(layout: @affiliate.get_layout)
         end
       end
     end
